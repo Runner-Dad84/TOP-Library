@@ -1,5 +1,6 @@
-let library = [];
+let library = ["Peter Pan", "Treasure Island", "Running with the Buffalos"];
 
+//constructor
 function book (title, author, pages, read) {
     this.title = title,
     this.author = author,
@@ -10,6 +11,13 @@ function book (title, author, pages, read) {
     }
 };
 
+//add Book
 function addBook () {
 
 };
+
+function displayBook (){
+    for (i = 0; i < library.length; i++){
+        console.log(library[i]);
+    }
+}
