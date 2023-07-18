@@ -1,5 +1,6 @@
 let library = ["Peter Pan", "Treasure Island", "Running with the Buffalos"];
 
+
 //constructor
 function book (title, author, pages, read) {
     this.title = title,
@@ -18,6 +19,9 @@ function addBook () {
 
 function displayBook (){
     for (i = 0; i < library.length; i++){
-        console.log(library[i]);
+        let node = document.createElement("div");
+        let title = document.createTextNode(library[i]);
+        node.appendChild(title);
+        document.getElementById("shelf").appendChild(node);        
     }
 }
