@@ -11,8 +11,10 @@
 <body>
     <div id="shelf">
     </div>
+
     <button onclick="displayForm()" id="formButton">Add Book</button>
-    <form action="" id="form">
+    
+    <form action="post" id="form">
         <div class="fields">
             <label for="title">Book Title</label>
             <input type="text" name="title" id="title">
@@ -39,6 +41,10 @@
                 <option value="drama">Drama</option>
                 <option value="horror">Horro</option>
                 <option value="romance">Romance</option>
+            </select>
+        </div>
+        <div class="fields">
+            <button type="submit">Submit</button>
         </div>
     </form>
 </body>
