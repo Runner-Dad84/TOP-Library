@@ -19,15 +19,14 @@ function addBook () {
 
 };
 
+//display or disapear form with button press
 let displayForm = function () {
     let form = document.getElementById("form");
     let button = document.getElementById("formButton");
     if (count % 2) {
-        console.log(count);
         form.style.display="none"
         count+=1;
     } else {
-        console.log(count);
         form.style.display="block"
         count+=1;
     };
