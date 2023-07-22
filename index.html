@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="shelf">
-    </div>
+    <div id="shelf"></div>
 
     <button onclick="displayForm()" id="formButton">Add Book</button>
     
-    <form action="post" id="form">
+    <form action="" method="post" id="form" onsubmit="false">
         <div class="fields">
             <label for="title">Book Title</label>
             <input type="text" name="title" id="title">
@@ -34,17 +33,17 @@
             <input type="radio" id="fiction" name="category" value="fiction">
         </div>
         <div class="fields">
-            <label for=""></label>
+            <label for="genre">Genre</label>
             <select id="genre" name="genre" size="5">
                 <option value="adventure">Adventure</option>
                 <option value="comedy">Comedy</option>
                 <option value="drama">Drama</option>
-                <option value="horror">Horro</option>
+                <option value="horror">Horror</option>
                 <option value="romance">Romance</option>
             </select>
         </div>
         <div class="fields">
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit">Submit</button>
         </div>
     </form>
 </body>

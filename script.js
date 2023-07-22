@@ -1,6 +1,13 @@
-let library = ["Peter Pan", "Treasure Island", "Running with the Buffalos"];
+
 //See Display form
 let count = 0;
+let formdata;
+//Global varialble
+const button = document.getElementById("formButton");
+let library = ["book 1", "book 2", "book 3"];
+
+
+
 
 
 //constructor
@@ -22,12 +29,11 @@ function addBook () {
 //display or disapear form with button press
 let displayForm = function () {
     let form = document.getElementById("form");
-    let button = document.getElementById("formButton");
     if (count % 2) {
-        form.style.display="none"
+        form.style.display="none";
         count+=1;
     } else {
-        form.style.display="block"
+        form.style.display="block";
         count+=1;
     };
     
@@ -41,4 +47,28 @@ function displayBook (){
         node.appendChild(title);
         document.getElementById("shelf").appendChild(node);        
     }
+};
+
+//Pull form data
+//add event listener and put this constant inside. Likely my code is creating a blank form and then trying to access it.
+
+const submit = document.getElementById("submit");
+let form = document.getElementById("form");
+
+
+submit.addEventListener("click", event => {
+    event.preventDefault();
 }
+);
+
+/*
+function myFunction() {
+    let data = form.elements;
+    library.push(data);
+    displayBook ();
+};
+
+
+submit.addEventListener("click", myFunction);
+*/
+
