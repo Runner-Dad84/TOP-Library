@@ -4,27 +4,28 @@ let count = 0;
 let formdata;
 //Global varialble
 const button = document.getElementById("formButton");
-let library = ["book 1", "book 2", "book 3"];
+const submit = document.getElementById("submit");
+let form1 = document.getElementById('form');
+let title;
+let author;
+let year;
+let category;
+let genre;
+let library = [];
 
 
 
 
 
 //constructor
-function book (title, author, pages, read) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = read,
-    this.info = function(){
-        return console.log(`The $[this.title] by $[this.author], $[this.pages], $[this.read]`)
-    }
-};
+function book (title, author, year, category, genre) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+    this.category = category;
+    this.genre = genre;
+}
 
-//add Book
-function addBook () {
-
-};
 
 //display or disapear form with button press
 let displayForm = function () {
@@ -52,12 +53,19 @@ function displayBook (){
 //Pull form data
 //add event listener and put this constant inside. Likely my code is creating a blank form and then trying to access it.
 
-const submit = document.getElementById("submit");
-let form = document.getElementById("form");
+
+
 
 
 submit.addEventListener("click", event => {
     event.preventDefault();
+    title = (form1.elements[0].value);
+    author = (form1.elements[1].value);
+    year = (form1.elements[2].value);
+    category = (form1.elements[3].value);
+    genre = (form1.elements[4].value);
+    let newBook = new book (title, author, year, category, genre);
+    return library.push(newBook);
 }
 );
 
