@@ -5,6 +5,7 @@ let formdata;
 //Global varialble
 const button = document.getElementById("formButton");
 const submit = document.getElementById("submit");
+
 let form1 = document.getElementById('form');
 let title;
 let author;
@@ -12,10 +13,6 @@ let year;
 let category;
 let genre;
 let library = [];
-
-
-
-
 
 //constructor
 function book (title, author, year, category, genre) {
@@ -42,12 +39,21 @@ let displayForm = function () {
 
 //adds array item to DOM and to document on shelf
 function displayBook (){
-    for (i = 0; i < library.length; i++){
-        let node = document.createElement("div");
-        let title = document.createTextNode(library[i]);
-        node.appendChild(title);
-        document.getElementById("shelf").appendChild(node);        
-    }
+        let shelf = document.getElementById("shelf");
+        for (i=0; i<library.length; i++) {
+            for (let key in library[i]) {
+                console.log(`${key}: ${library[i][key]}`)
+            }
+        };
+    
+    
+
+        let div = document.createElement("div");
+        let para = document.createElement("p");
+        para.appendChild(document.createTextNode(`Book Title: ${title}`));
+        div.appendChild(para);
+        shelf.appendChild(div)
+            
 };
 
 //Pull form data
@@ -65,9 +71,14 @@ submit.addEventListener("click", event => {
     category = (form1.elements[3].value);
     genre = (form1.elements[4].value);
     let newBook = new book (title, author, year, category, genre);
-    return library.push(newBook);
+    library.push(newBook);
+    displayBook ()
 }
 );
+
+
+let bookProto = Object.getPrototypeOf(book);
+
 
 /*
 function myFunction() {

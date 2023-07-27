@@ -5,3 +5,8 @@ form {
 .submit {
     display: block;
 }
+
+.displayBook div {
+    display:grid;
+    grid-template-columns: 1fr;
+}
