@@ -41,18 +41,15 @@ let displayForm = function () {
 function displayBook (){
         let shelf = document.getElementById("shelf");
         for (i=0; i<library.length; i++) {
+            let div = document.createElement("div");
             for (let key in library[i]) {
-                console.log(`${key}: ${library[i][key]}`)
+                let para = document.createElement("p");
+                para.appendChild(document.createTextNode(`${key}: ${library[i][key]}`))
+                div.appendChild(para);
+                shelf.appendChild(div)
             }
         };
     
-    
-
-        let div = document.createElement("div");
-        let para = document.createElement("p");
-        para.appendChild(document.createTextNode(`Book Title: ${title}`));
-        div.appendChild(para);
-        shelf.appendChild(div)
             
 };
 
@@ -71,6 +68,7 @@ submit.addEventListener("click", event => {
     category = (form1.elements[3].value);
     genre = (form1.elements[4].value);
     let newBook = new book (title, author, year, category, genre);
+    library = [];
     library.push(newBook);
     displayBook ()
 }
