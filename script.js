@@ -21,6 +21,14 @@ function book (Title, Author, Year, Category, Genre) {
     this.index = index;
 }
 
+//book prototype
+let bookProto = {
+
+};
+
+//assign proto
+Object.assign(book.prototype, bookProto);
+
 //display or disapear form with button press
 let displayForm = function () {
     let form = document.getElementById("form");
@@ -39,15 +47,17 @@ function displayBook (){
         shelf.textContent = "";
         for (i=0; i<library.length; i++) {
             let div = document.createElement("div");
+            let rmvBtn = document.createElement("button");
+            rmvBtn.innerText = "Remove Book";
+            div.appendChild(rmvBtn);
             for (let key in library[i]) {
                 let para = document.createElement("p");
                 para.appendChild(document.createTextNode(`${key}: ${library[i][key]}`))
                 div.appendChild(para);
-                shelf.appendChild(div)
+                shelf.appendChild(div);
             }
         };
-    
-            
+           
 };
 
 //Pull form data
