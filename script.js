@@ -8,7 +8,7 @@ const submit = document.getElementById("submit");
 let shelf = document.getElementById("shelf");
 
 let form1 = document.getElementById('form');
-let Title, Author, Year, Category, Genre;
+let Title, Author, Year, Category, Genre, index;
 let library = [];
 
 //constructor
@@ -18,6 +18,7 @@ function book (Title, Author, Year, Category, Genre) {
     this.Year = Year;
     this.Category = Category;
     this.Genre = Genre;
+    this.index = index;
 }
 
 //display or disapear form with button press
@@ -39,7 +40,6 @@ function displayBook (){
         for (i=0; i<library.length; i++) {
             let div = document.createElement("div");
             for (let key in library[i]) {
-                let bookIndex = library[i];
                 let para = document.createElement("p");
                 para.appendChild(document.createTextNode(`${key}: ${library[i][key]}`))
                 div.appendChild(para);
@@ -64,6 +64,7 @@ submit.addEventListener("click", event => {
     Year = (form1.elements[2].value);
     Category = (form1.elements[3].value);
     Genre = (form1.elements[4].value);
+    index = library.length;
     let newBook = new book (Title, Author, Year, Category, Genre);
     library.push(newBook);
     displayBook ()
