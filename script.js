@@ -9,6 +9,7 @@ let shelf = document.getElementById("shelf");
 
 let form1 = document.getElementById('form');
 let Title, Author, Year, Category, Genre, index;
+let rmvBtn;
 let library = [];
 
 //constructor
@@ -19,13 +20,30 @@ function book (Title, Author, Year, Category, Genre) {
     this.Category = Category;
     this.Genre = Genre;
     this.index = index;
-}
-
-//book prototype
-let bookProto = {
-
 };
 
+
+function test () {
+        return console.log("success")};
+
+ /*
+function remove (library, target){
+
+
+   
+    const targetIndex = library.findIndex((book) => book.target === target);
+    if (targetIndex > -1) {
+        library.splice(targetIndex, 1);
+    }
+    return console.log(library);
+    
+};
+*/
+
+//book prototype
+const bookProto = {
+    
+}
 //assign proto
 Object.assign(book.prototype, bookProto);
 
@@ -42,12 +60,14 @@ let displayForm = function () {
     
 }
 
+
 //adds array item to DOM and to document on shelf
 function displayBook (){
         shelf.textContent = "";
         for (i=0; i<library.length; i++) {
             let div = document.createElement("div");
-            let rmvBtn = document.createElement("button");
+            rmvBtn = document.createElement("button");
+            rmvBtn.onclick = test;
             rmvBtn.innerText = "Remove Book";
             div.appendChild(rmvBtn);
             for (let key in library[i]) {
@@ -64,9 +84,6 @@ function displayBook (){
 //add event listener and put this constant inside. Likely my code is creating a blank form and then trying to access it.
 
 
-
-
-
 submit.addEventListener("click", event => {
     event.preventDefault();
     Title = (form1.elements[0].value);
@@ -80,19 +97,3 @@ submit.addEventListener("click", event => {
     displayBook ()
 }
 );
-
-
-
-
-
-/*
-function myFunction() {
-    let data = form.elements;
-    library.push(data);
-    displayBook ();
-};
-
-
-submit.addEventListener("click", myFunction);
-*/
-
