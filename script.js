@@ -9,6 +9,7 @@ let shelf = document.getElementById("shelf");
 let form1 = document.getElementById('form');
 let Title, Author, Year, Category, Genre;
 let rmvBtn;
+let readBtn;
 let library = [];
 
 //constructor
@@ -45,6 +46,7 @@ function displayBook (){
             div.id = `${[i]}`;
             div.dataset.id = [i];
             rmvBtn = document.createElement("button");
+            readBtn = document.createElement("button");
             rmvBtn.id = `${[i]}`;
             rmvBtn.dataset.indexNum = [i];
             rmvBtn.addEventListener("click", e => 
@@ -60,6 +62,8 @@ function displayBook (){
             });
             rmvBtn.innerText = "Remove Book";
             div.appendChild(rmvBtn);
+            readBtn.innerText = "Haven't Read";
+            div.appendChild(readBtn);
             for (let key in library[i]) {
                 let para = document.createElement("p");
                 para.appendChild(document.createTextNode(`${key}: ${library[i][key]}`))
