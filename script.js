@@ -6,9 +6,8 @@ let formdata;
 const button = document.getElementById("formButton");
 const submit = document.getElementById("submit");
 let shelf = document.getElementById("shelf");
-
 let form1 = document.getElementById('form');
-let Title, Author, Year, Category, Genre, index;
+let Title, Author, Year, Category, Genre;
 let rmvBtn;
 let library = [];
 
@@ -19,31 +18,11 @@ function book (Title, Author, Year, Category, Genre) {
     this.Year = Year;
     this.Category = Category;
     this.Genre = Genre;
-    this.index = index;
 };
-
-
-function test () {
-        return console.log("success")};
-
- /*
-function remove (library, target){
-
-
-   
-    const targetIndex = library.findIndex((book) => book.target === target);
-    if (targetIndex > -1) {
-        library.splice(targetIndex, 1);
-    }
-    return console.log(library);
-    
-};
-*/
 
 //book prototype
-const bookProto = {
-    
-}
+const bookProto = {};
+
 //assign proto
 Object.assign(book.prototype, bookProto);
 
@@ -56,18 +35,29 @@ let displayForm = function () {
     } else {
         form.style.display="block";
         count+=1;
-    };
-    
-}
+    };   
+};
 
-
-//adds array item to DOM and to document on shelf
 function displayBook (){
         shelf.textContent = "";
         for (i=0; i<library.length; i++) {
             let div = document.createElement("div");
+            div.id = `${[i]}`;
+            div.dataset.id = [i];
             rmvBtn = document.createElement("button");
-            rmvBtn.onclick = test;
+            rmvBtn.id = `${[i]}`;
+            rmvBtn.dataset.indexNum = [i];
+            rmvBtn.addEventListener("click", e => 
+            {
+                let elementID = e.target.id;
+                for (i = 0; i < library.length; i++) {
+                    let index = [i];
+                    if (elementID > -1) {
+                        library.splice(elementID, 1);
+                        displayBook ()
+                    }
+                }
+            });
             rmvBtn.innerText = "Remove Book";
             div.appendChild(rmvBtn);
             for (let key in library[i]) {
@@ -76,13 +66,10 @@ function displayBook (){
                 div.appendChild(para);
                 shelf.appendChild(div);
             }
-        };
-           
+        };     
 };
 
 //Pull form data
-//add event listener and put this constant inside. Likely my code is creating a blank form and then trying to access it.
-
 
 submit.addEventListener("click", event => {
     event.preventDefault();
@@ -91,9 +78,7 @@ submit.addEventListener("click", event => {
     Year = (form1.elements[2].value);
     Category = (form1.elements[3].value);
     Genre = (form1.elements[4].value);
-    index = library.length;
     let newBook = new book (Title, Author, Year, Category, Genre);
     library.push(newBook);
     displayBook ()
-}
-);
+});
