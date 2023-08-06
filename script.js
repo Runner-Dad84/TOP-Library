@@ -1,6 +1,7 @@
 
 //See Display form
 let count = 0;
+let sum = 0;
 let formdata;
 //Global varialble
 const button = document.getElementById("formButton");
@@ -39,30 +40,43 @@ let displayForm = function () {
     };   
 };
 
+
+
+
 function displayBook (){
         shelf.textContent = "";
         for (i=0; i<library.length; i++) {
             let div = document.createElement("div");
-            div.id = `${[i]}`;
-            div.dataset.id = [i];
             rmvBtn = document.createElement("button");
             readBtn = document.createElement("button");
             rmvBtn.id = `${[i]}`;
-            rmvBtn.dataset.indexNum = [i];
-            rmvBtn.addEventListener("click", e => 
-            {
+            readBtn.id = `${[i]}`;
+            rmvBtn.addEventListener("click", e => {
                 let elementID = e.target.id;
                 for (i = 0; i < library.length; i++) {
-                    let index = [i];
                     if (elementID > -1) {
                         library.splice(elementID, 1);
                         displayBook ()
                     }
                 }
             });
+            readBtn.addEventListener("click", e => {
+                let element2ID = e.target.id;
+                for (i = 0; i < library.length; i++) {
+                    if (element2ID > -1) {
+                        if (sum % 2) {
+                            e.target.innerText="Haven't Read";
+                            sum+=1;
+                        } else {
+                            e.target.innerText="Book Read";
+                            sum+=1;
+                        }  
+                    }
+                }
+            })
             rmvBtn.innerText = "Remove Book";
             div.appendChild(rmvBtn);
-            readBtn.innerText = "Haven't Read";
+            readBtn.innerText = "Read Book?";
             div.appendChild(readBtn);
             for (let key in library[i]) {
                 let para = document.createElement("p");
