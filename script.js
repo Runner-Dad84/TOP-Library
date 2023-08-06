@@ -95,7 +95,7 @@ submit.addEventListener("click", event => {
     Author = (form1.elements[1].value);
     Year = (form1.elements[2].value);
     Category = (form1.elements[3].value);
-    Genre = (form1.elements[4].value);
+    Genre = (form1.elements[5].value);
     let newBook = new book (Title, Author, Year, Category, Genre);
     library.push(newBook);
     displayBook ()
