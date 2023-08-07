@@ -88,13 +88,25 @@ function displayBook (){
 };
 
 //Pull form data
+let fiction = document.getElementById("fiction");
+let nonfiction = document.getElementById("nonfiction");
+let fictionValue;
+
+function fictionType () {
+    if (fiction.checked) {
+        return fictionValue = "Fiction";
+    } else if (nonfiction.checked) {
+        return fictionValue = "Nonfiction"
+    };
+}
 
 submit.addEventListener("click", event => {
     event.preventDefault();
+    fictionType();
     Title = (form1.elements[0].value);
     Author = (form1.elements[1].value);
     Year = (form1.elements[2].value);
-    Category = (form1.elements[3].value);
+    Category = fictionValue;
     Genre = (form1.elements[5].value);
     let newBook = new book (Title, Author, Year, Category, Genre);
     library.push(newBook);
