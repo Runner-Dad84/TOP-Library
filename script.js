@@ -117,11 +117,11 @@ function resetFields () {
 submit.addEventListener("click", event => {
     event.preventDefault();
     fictionType();
-    Title = (form1.elements[0].value);
-    Author = (form1.elements[1].value);
-    Year = (form1.elements[2].value);
+    Title = (title.value);
+    Author = (author.value);
+    Year = (year.value);
     Category = fictionValue;
-    Genre = (form1.elements[5].value);
+    Genre = (genre.value);
     let newBook = new book (Title, Author, Year, Category, Genre);
     library.push(newBook);
     displayBook();
