@@ -6,8 +6,13 @@ let formdata;
 //Global varialble
 const button = document.getElementById("formButton");
 const submit = document.getElementById("submit");
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+const year = document.getElementById("year");
+const genre = document.getElementById("genre");
 let shelf = document.getElementById("shelf");
 let form1 = document.getElementById('form');
+
 let Title, Author, Year, Category, Genre;
 let rmvBtn;
 let readBtn;
@@ -88,8 +93,8 @@ function displayBook (){
 };
 
 //Pull form data
-let fiction = document.getElementById("fiction");
-let nonfiction = document.getElementById("nonfiction");
+const fiction = document.getElementById("fiction");
+const nonfiction = document.getElementById("nonfiction");
 let fictionValue;
 
 function fictionType () {
@@ -98,6 +103,15 @@ function fictionType () {
     } else if (nonfiction.checked) {
         return fictionValue = "Nonfiction"
     };
+}
+
+function resetFields () {
+    title.value = "";
+    author.value = "";
+    year.value = "";
+    fiction.value="";
+    nonfiction.value="";
+    genre.value = "";
 }
 
 submit.addEventListener("click", event => {
@@ -110,5 +124,6 @@ submit.addEventListener("click", event => {
     Genre = (form1.elements[5].value);
     let newBook = new book (Title, Author, Year, Category, Genre);
     library.push(newBook);
-    displayBook ()
+    displayBook();
+    resetFields();
 });
