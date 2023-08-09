@@ -1,3 +1,15 @@
+:root {
+
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
 form {
     display:none;
 }
@@ -9,4 +21,39 @@ form {
 .displayBook div {
     display:grid;
     grid-template-columns: 1fr;
+}
+
+#shelf {
+    width: 80vw;
+    height: auto;
+    outline: solid brown 6px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+#shelf div {
+    height: 25vh;
+    width: 32vh;
+    border: solid black 4px;
+    border-radius: 8px;
+    box-shadow: ;
+    padding: 3px;
+    margin: 10px;
+}
+
+#shelf div button {
+    margin: 6px;
+    padding: 5px;
+    background-color:cornflowerblue;
+    color: white;
+    font-weight: bolder;
+    border: solid black 2px;
+    border-radius: 8px;
+}
+
+#shelf div p {
+    padding-left: 15px;
 }

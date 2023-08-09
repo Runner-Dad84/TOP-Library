@@ -16,6 +16,7 @@ let form1 = document.getElementById('form');
 let Title, Author, Year, Category, Genre;
 let rmvBtn;
 let readBtn;
+let element2ID;
 let library = [];
 
 //constructor
@@ -28,7 +29,8 @@ function book (Title, Author, Year, Category, Genre) {
 };
 
 //book prototype
-const bookProto = {};
+const bookProto = {
+};
 
 //assign proto
 Object.assign(book.prototype, bookProto);
