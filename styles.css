@@ -15,18 +15,19 @@ form {
 }
 
 .submit {
-    display: block;
+    display: grid;
 }
 
 .displayBook div {
     display:grid;
     grid-template-columns: 1fr;
+    margin: 15px;
 }
 
 #shelf {
     width: 80vw;
-    height: auto;
-    outline: solid brown 6px;
+    height:auto;
+    outline: solid brown .25rem;
     padding: 15px;
     display: flex;
     flex-direction: row;
@@ -44,16 +45,33 @@ form {
     margin: 10px;
 }
 
-#shelf div button {
+button {
     margin: 6px;
     padding: 5px;
     background-color:cornflowerblue;
     color: white;
     font-weight: bolder;
-    border: solid black 2px;
+    border: solid black .25rem;
     border-radius: 8px;
+}
+
+#formButton {
+    margin: 2rem;
 }
 
 #shelf div p {
     padding-left: 15px;
+}
+
+form {
+    border: solid black .25rem;
+    padding: .5rem;
+    border-radius: 10px;
+}
+
+form .fields {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;;
+    padding-bottom: .5rem;;
 }
