@@ -47,9 +47,6 @@ let displayForm = function () {
     };   
 };
 
-
-
-
 function displayBook (){
         shelf.textContent = "";
         for (i=0; i<library.length; i++) {
@@ -107,6 +104,7 @@ function fictionType () {
     };
 }
 
+//Reset for fields
 function resetFields () {
     title.value = "";
     author.value = "";
@@ -115,7 +113,7 @@ function resetFields () {
     nonfiction.value="";
     genre.value = "";
 }
-
+//submit forms, update library, display to shelf
 submit.addEventListener("click", event => {
     event.preventDefault();
     fictionType();

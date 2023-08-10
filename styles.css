@@ -35,14 +35,26 @@ form {
     align-content: space-between;
 }
 
+#empty {
+    padding: 6rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(244, 75, 75, .65);
+    align-self: center;
+    justify-self: center;
+}
+
 #shelf div {
     height: 25vh;
     width: 32vh;
     border: solid black 4px;
     border-radius: 8px;
     box-shadow: ;
-    padding: 3px;
-    margin: 10px;
+    padding-right: 1.25rem;
+    padding-left: .75rem;
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+    margin: .5rem;
 }
 
 button {
