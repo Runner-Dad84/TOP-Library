@@ -47,7 +47,9 @@ form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: space-between;
+    align-content: center;
+    justify-content: center;
+    gap:10px;
 }
 
 #empty {
