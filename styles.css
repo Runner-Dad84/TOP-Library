@@ -1,4 +1,7 @@
 :root {
+    --div-gradient: linear-gradient(to right, white, rgb(245, 223, 245));
+    --div-shadow: 4px 4px 4px rgb(112, 80, 112, .8);
+    --trim-color: rgb(149, 83, 149);
 
 }
 
@@ -8,6 +11,16 @@ body {
     justify-content: center;
     flex-direction: column;
     padding: 10px;
+    background-color: #c9cfb5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23884fe6' fill-opacity='0.69' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+h1 {
+    font-size: 5rem;
+    color:rgb(236, 225, 247);
+    text-shadow:3px 3px 2px gray;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight:900;
 }
 
 form {
@@ -27,7 +40,9 @@ form {
 #shelf {
     width: 80vw;
     height:auto;
-    outline: solid brown .25rem;
+    background-image: linear-gradient(aliceblue, lightgray); 
+    border-radius: 15px;
+    box-shadow: 8px 8px 8px gray;
     padding: 15px;
     display: flex;
     flex-direction: row;
@@ -39,7 +54,7 @@ form {
     padding: 6rem;
     font-size: 2rem;
     font-weight: bold;
-    color: rgb(244, 75, 75, .65);
+    color: var(--trim-color);
     align-self: center;
     justify-self: center;
 }
@@ -47,9 +62,10 @@ form {
 #shelf div {
     height: 25vh;
     width: 32vh;
-    border: solid black 4px;
+    
     border-radius: 8px;
-    box-shadow: ;
+    box-shadow: var(--div-shadow);
+    background-image: var(--div-gradient);
     padding-right: 1.25rem;
     padding-left: .75rem;
     padding-bottom: 3rem;
@@ -60,11 +76,12 @@ form {
 button {
     margin: 6px;
     padding: 5px;
-    background-color:cornflowerblue;
+    background-color: var(--trim-color);
     color: white;
     font-weight: bolder;
-    border: solid black .25rem;
     border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #formButton {
@@ -73,12 +90,15 @@ button {
 
 #shelf div p {
     padding-left: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 form {
-    border: solid black .25rem;
     padding: .5rem;
     border-radius: 10px;
+    box-shadow: var(--div-shadow);
+    background-image: var(--div-gradient);
 }
 
 form .fields {
