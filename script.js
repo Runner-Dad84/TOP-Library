@@ -70,9 +70,13 @@ function displayBook (){
                     if (element2ID > -1) {
                         if (sum % 2) {
                             e.target.innerText="Haven't Read";
+                            e.target.style.backgroundColor = "White";
+                            e.target.style.color = "Purple";
                             sum+=1;
                         } else {
                             e.target.innerText="Book Read";
+                            e.target.style.backgroundColor = "Purple";
+                            e.target.style.color = "White";
                             sum+=1;
                         }  
                     }
