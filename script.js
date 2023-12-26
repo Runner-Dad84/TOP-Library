@@ -19,21 +19,19 @@ let readBtn;
 let element2ID;
 let library = [];
 
+
+
 //constructor
-function book (Title, Author, Year, Category, Genre) {
+
+class book {
+constructor (Title, Author, Year, Category, Genre) {
     this.Title = Title;
     this.Author = Author;
     this.Year = Year;
     this.Category = Category;
     this.Genre = Genre;
-};
-
-//book prototype
-const bookProto = {
-};
-
-//assign proto
-Object.assign(book.prototype, bookProto);
+}
+}
 
 //display or disapear form with button press
 let displayForm = function () {
@@ -119,6 +117,19 @@ function resetFields () {
 }
 //submit forms, update library, display to shelf
 submit.addEventListener("click", event => {
+    if (title.value === "") {
+        event.preventDefault();
+        title.setCustomValidity("Please enter a book title.")
+        title.reportValidity();
+        displayBook();
+    } else if ((year.value < 0) || (year.value > 2024) || (year.value === "")) {
+        event.preventDefault();
+        year.setCustomValidity("Include publish date from 0 to 2024.")
+        year.reportValidity();
+        displayBook();
+    } else {
+
+
     event.preventDefault();
     fictionType();
     Title = (title.value);
@@ -130,4 +141,5 @@ submit.addEventListener("click", event => {
     library.push(newBook);
     displayBook();
     resetFields();
+    };
 });
